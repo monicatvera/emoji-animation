@@ -1,0 +1,73 @@
+body {
+  background:#000 ;
+  overflow:hidden;
+  user-select:none;
+}
+
+.emoji-box {
+  position:absolute;
+  width:100px;
+  height:100px;
+  top:50%;
+  left:50%;
+  border:solid white 0px;
+  filter:
+    /* 
+    url(#noise)
+    url(#liquid)
+    url(#anaglyph3d)
+    */  
+    url(#pixelate-effect);
+    ;
+  cursor:pointer;
+  transition: all 1s;
+  transform-origin:center;
+  transform:translate(-50%,-50%) scale(1.6);
+  transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+  &:hover {
+    transform: translate(-50%,-50%) scale(2);
+  }
+}
+
+#svg-emojis {
+  filter:
+    /* 
+    url(#noise)
+    url(#pixelate-effect);
+    */  
+    url(#liquid)
+    url(#anaglyph3d)
+    ;
+  animation:r infinite 4s;
+  transform-origin:center;
+  animation-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+
+@keyframes r {
+  0% {
+    transform: rotate(25deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+}
+#svg-emojis path{
+  opacity:0;
+  transition: opacity 1s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+
+
+/*
+#emo-laugh{
+  display:block;
+}
+#emo-angry{
+  display:block;
+}
+#emo-bomb{
+  display:block;
+}
+*/
